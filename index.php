@@ -23,7 +23,7 @@
     <!-- Menu lateral -->
     <header id="MenuLateralSidebar" class=".d-flex flex-column flex-shrink-0 p-3 text-white offcanvas-md offcanvas-start">
     
-    <img src="img/logo.png" alt="logo do sistema">
+    <img src="img/logo.jpg" alt="logo do sistema">
     
     <a href="#" class="navbar-brand"> </a><hr>
             <ul class="mynav nav nav-pills flex-column mb-auto">
