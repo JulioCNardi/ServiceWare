@@ -97,9 +97,7 @@ class Cliente
 
         return $this;
     }
-    
+
 }
-
-
 
 ?>
