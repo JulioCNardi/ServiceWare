@@ -15,116 +15,99 @@
     <link rel="stylesheet" href="css/estilo_menu.css">
 
     <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
 </head>
 <body class="container-fluid p-0 d-flex h-100">
 
     <!-- Menu lateral -->
-    <header id="MenuLateralSidebar" class=".d-flex flex-column flex-shrink-0 p-3 text-white offcanvas-md offcanvas-start">
-    
-    <img src="img/logo.jpg" alt="logo do sistema">
-    
-    <a href="#" class="navbar-brand"> </a><hr>
-            <ul class="mynav nav nav-pills flex-column mb-auto">
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <aside id="sidebar">
+            <div class="h-100">
+                <div class="sidebar-logo">
+                    <a href="#">ServiceWare</a>
+                </div>
+                <!-- Sidebar Navigation -->
+                <ul class="sidebar-nav">
+                    <li class="sidebar-header">
+                        Tools & Components
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#pages"
+                            aria-expanded="false" aria-controls="pages">
+                            <i class="fa-regular fa-file-lines pe-2"></i>
+                            Cadastro
+                        </a>
+                        <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link">Clientes</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link">Produto</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard"
+                            aria-expanded="false" aria-controls="dashboard">
+                            <i class="fa-solid fa-sliders pe-2"></i>
+                            Ordens
+                        </a>
+                        <ul id="dashboard" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link">Abertura de OS</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link">Consulta de OS</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-header">
+                        Administração
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#multi"
+                            aria-expanded="false" aria-controls="multi">
+                            <i class="fa-solid fa-sliders pe-2"></i>
+                            Configurações
+                        </a>
+                        <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link">Alterar Senha</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link">Link 2</a>
+                            </li>
 
-                <li class="nav-item mb-1">
-                    <a href="#">
-                        <i class="fa-regular fa-user"></i>
-                        Cadastro de cliente
-                    </a>
-                </li>
-
-                <li class="nav-item mb-1">
-                    <a href="#">
-                        <i class="fa-regular fa-user"></i>
-                        Cadastro de produto/serviço
-                    </a>
-                </li>
-
-                <li class="nav-item mb-1">
-                    <a href="#">
-                        <i class="fa-regular fa-user"></i>
-                        Cadastro de ordem
-                    </a>
-                </li>
-
-                <li class="nav-item mb-1">
-                    <a href="#">
-                        <i class="fa-regular fa-bookmark"></i>
-                        Pesquisar Ordens
-                        <span class="notification-badge">5</span>
-                    </a>
-                </li>
-                <li class="nav-item mb-1">
-                    <a href="#">
-                        <i class="fa-regular fa-newspaper"></i>
-                        Relatórios
-                    </a>
-                </li>
-                <li class="nav-item mb-1">
-                    <a href="#">
-                        <i class="fa-solid fa-archway"></i>
-                        Institutions
-                    </a>
-                </li>
-                <li class="nav-item mb-1">
-                    <a href="#">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                        Organizations
-                    </a>
-                </li>
-
-                <li class="sidebar-item  nav-item mb-1">
-                    <a href="#" 
-                       class="sidebar-link collapsed" 
-                       data-bs-toggle="collapse"
-                       data-bs-target="#settings"
-                       aria-expanded="false"
-                       aria-controls="settings">
-                        <i class="fas fa-cog pe-2"></i>
-                        <span class="topic">Settings </span>
-                    </a>
-                    <ul id="settings" 
-                        class="sidebar-dropdown list-unstyled collapse" 
-                        data-bs-parent="#sidebar">
-                        <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">
-                                <i class="fas fa-sign-in-alt pe-2"></i>
-                                <span class="topic"> Login</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">
-                                <i class="fas fa-user-plus pe-2"></i>
-                                <span class="topic">Register</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">
-                                <i class="fas fa-sign-out-alt pe-2"></i>
-                                <span class="topic">Log Out</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <hr>
-            <div class="d-flex">
-
-                <i class="fa-solid fa-book  me-2"></i>
-                <span>
-                    <h6 class="mt-1 mb-0">
-                          Geeks for Geeks Learning Portal
-                      </h6>
-                </span>
+                            
+                        </ul>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Link 2</a>
+                    </li>
+                </ul>
             </div>
-    </header>
-    <!-- Container conteudo da pagina -->
-    <main>
+        </aside>
         
-    </main>
-    <footer>
-
-    </footer>
+        <!-- Main Component -->
+        <div class="main">
+            <nav class="navbar navbar-expand px-3 border-bottom text-">
+                <!-- Button for sidebar toggle -->
+                <button class="btn" type="button btn-dark" data-bs-theme="dark">
+                    <span>Menu</span>
+                </button>
+            </nav>
+            <main class="content px-3 py-2 row">
+                <div class="container-fluid bg-white col-6 mx-3">
+                    <div class="mb-3">
+                        <h3></h3>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+    </header>
+    
 </body>
