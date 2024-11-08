@@ -91,17 +91,21 @@
         
         <!-- Main Component -->
         <div class="main">
-            <nav class="navbar navbar-expand px-3 border-bottom text-">
+            <nav class="navbar navbar-expand px-3">
                 <!-- Button for sidebar toggle -->
                 <button class="btn" type="button btn-dark" data-bs-theme="dark">
                     <span>Menu</span>
                 </button>
             </nav>
-            <main class="content px-3 py-2 row">
-                <div class="container-fluid bg-white col-6 mx-3">
-                    <div class="mb-3">
-                        <h3></h3>
-                    </div>
+            <main class="content px-3 ">
+                <div class="container-fluid">
+                    <div class="mb-3 text-center">
+                        <h2>Bem vindo ao sistema ServiceWare!</h2>
+                        <img src="img/logo.png">
+                        <p>
+                            Um projeto de Programação II realizado pelos seguintes academicos:
+                        </p>
+                        <p>Alex Kophal Knecht, Gabriel Henrique, Jandir Basegio, Julio Cesar Nardi</p>
                 </div>
             </main>
         </div>
