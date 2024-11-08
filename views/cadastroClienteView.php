@@ -11,8 +11,7 @@
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="css/estilo.css">
-    <link rel="stylesheet" href="css/estilo_menu.css">
+    <link rel="stylesheet" href="../css/estilo.css">
 
     <!-- Font Awesome JS -->
     <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
@@ -20,28 +19,19 @@
 <body class="container-fluid p-0 d-flex h-100">
 
     <!-- Menu lateral -->
-    <div class="wrapper">
-        <!-- Sidebar -->
-        <?php require_once("menu.php")?>
-        
+    <div class="wrapper">     
         <!-- Main Component -->
         <div class="main">
             <nav class="navbar navbar-expand px-3">
                 <!-- Button for sidebar toggle -->
                 <button class="btn" type="button btn-dark" data-bs-theme="dark">
-                    <span>Menu</span>
+                    <a href="../index.php">Voltar</a>
                 </button>
             </nav>
             <main class="content px-3 ">
                 <div class="container-fluid">
-                    <div class="mb-3 text-center">
-                        <h2>Bem vindo ao sistema ServiceWare!</h2>
-                        <img src="img/logo.png">
-                        <p>
-                            Um projeto de Programação II realizado pelos seguintes academicos:
-                        </p>
-                        <p>Alex Kophal Knecht, Gabriel Henrique, Jandir Basegio, Julio Cesar Nardi</p>
-                    </div>
+                <div class="mb-3 text-center">
+                </div>
                 </div>
             </main>
         </div>
