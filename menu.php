@@ -16,10 +16,10 @@
                         </a>
                         <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <li class="sidebar-item">
-                                <a href="/views/cadastroClienteView.php" class="sidebar-link">Clientes</a>
+                                <a href="views/cadastroClienteView.php" class="sidebar-link">Clientes</a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="/views/cadastroProdutoView.php" class="sidebar-link">Produto</a>
+                                <a href="views/consultaProdutoView.php" class="sidebar-link">Produto</a>
                             </li>
                         </ul>
                     </li>
@@ -31,10 +31,10 @@
                         </a>
                         <ul id="dashboard" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <li class="sidebar-item">
-                                <a href="/views/aberturaOSView.php" class="sidebar-link">Abertura de OS</a>
+                                <a href="views/aberturaOSView.php" class="sidebar-link">Abertura de OS</a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="/views/consultaOSView.php" class="sidebar-link">Consulta de OS</a>
+                                <a href="views/consultaOSView.php" class="sidebar-link">Consulta de OS</a>
                             </li>
                         </ul>
                     </li>

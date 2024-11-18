@@ -25,22 +25,40 @@
             <nav class="navbar navbar-expand px-3">
                 <!-- Button for sidebar toggle -->
                 <button class="btn" type="button btn-dark" data-bs-theme="dark">
-                    <a href="consultaProdutoView.php">Voltar</a>
+                    <a href="../index.php">Voltar</a>
                 </button>
             </nav>
             <main class="content px-3 ">
                 <div class="container-fluid">
-                <form action="../controllers/CadastrarProduto.php" method="POST">
+                    <?php
+                        $produto = [];
+                        $id = filter_input(INPUT_GET, 'idProduto');
+                        if ($id) 
+                        {
+                            $sql = $pdo->prepare("SELECT * FROM produtos where idProduto = :idProduto");
+                            $sql->bindValue(':produtoId', $produtoId);
+                            $sql->execute();
+
+                            if($sql->rowCount() > 0) {
+                                $produto = $sql->fetch(PDO::FETCH_ASSOC);
+                            } else 
+                            {
+                                header("consultaProdutoView.php");
+                            }
+                        }
+                    ?>
+                <form action="../controllers/EditarProduto.php" method="POST">
                     <label for="nome">Nome:</label>
-                    <input type="text" id="nome" name="nome" required>
+                    <input type="text" name="nome" value="<?php echo htmlspecialchars($produto['nome'] ?? ''); ?>">
 
                     <label for="quantidade">Quantidade:</label>
-                    <input type="number" id="quantidade" name="quantidade" required>
+                    <input type="text" name="quantidade" value="<?php echo htmlspecialchars($produto['quantidade'] ?? ''); ?>">
+
 
                     <label for="valor">Valor:</label>
-                    <input type="text" id="valor" name="valor" required> <!-- Valor como número decimal -->
+                    <input type="text" name="valor" value="<?php echo htmlspecialchars($produto['valor'] ?? ''); ?>">
 
-                    <button type="submit">Cadastrar</button>
+                    <button type="submit">Editar</button>
                 </form>
                 </div>
             </main>
