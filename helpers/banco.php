@@ -3,7 +3,7 @@
 $db_name = "serviceware";
 $db_host = "localhost";
 $db_user = "root";
-$db_pass = "root";
+$db_pass = "";
 
 try {
     // Conexão com o banco de dados usando PDO
