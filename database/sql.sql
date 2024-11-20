@@ -13,7 +13,9 @@ CREATE TABLE clientes (
     cpf varchar(255) NOT NULL,
     endereco varchar(255) NOT NULL,
     email varchar(250) NOT NULL,
-    telefone VARCHAR(15)
+    telefone VARCHAR(15),
+    cidade VARCHAR(255),
+    numero VARCHAR(255), NOT NULL
 );
 
 CREATE TABLE veiculos(
@@ -33,6 +35,7 @@ CREATE TABLE ordem(
    dataFechamento DATETIME,
    idVeiculo int not null,
    valorVenda FLOAT NULL,
+   observacao varchar(500) NULL,
    FOREIGN KEY (idCliente) REFERENCES clientes(idCliente) ON DELETE CASCADE,
    FOREIGN KEY (idVeiculo) REFERENCES veiculos(idVeiculo) ON DELETE CASCADE
 );

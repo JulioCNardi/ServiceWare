@@ -34,9 +34,6 @@
                     <label for="nome">Nome:</label>
                     <input type="text" id="nome" name="nome" required>
 
-                    <label for="quantidade">Quantidade:</label>
-                    <input type="number" id="quantidade" name="quantidade" required>
-
                     <label for="valor">Valor:</label>
                     <input type="text" id="valor" name="valor" required> <!-- Valor como número decimal -->
 

@@ -9,6 +9,8 @@ class Cliente
     private $cidade = "";
     private $rua  = "";
     private $numero = "";
+    private $telefone="";
+    private $endereco="";
 
     // Getters e setters
 
@@ -98,6 +100,46 @@ class Cliente
         return $this;
     }
 
+
+    /**
+     * Get the value of telefone
+     */ 
+    public function getTelefone()
+    {
+        return $this->telefone;
+    }
+
+    /**
+     * Set the value of telefone
+     *
+     * @return  self
+     */ 
+    public function setTelefone($telefone)
+    {
+        $this->telefone = $telefone;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of endereco
+     */ 
+    public function getEndereco()
+    {
+        return $this->endereco;
+    }
+
+    /**
+     * Set the value of endereco
+     *
+     * @return  self
+     */ 
+    public function setEndereco($endereco)
+    {
+        $this->endereco = $endereco;
+
+        return $this;
+    }
 }
 
 ?>

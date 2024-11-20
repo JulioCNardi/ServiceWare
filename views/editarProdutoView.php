@@ -49,14 +49,11 @@
                     ?>
                 <form action="../controllers/EditarProduto.php" method="POST">
                     <label for="nome">Nome:</label>
-                    <input type="text" name="nome" value="<?php echo htmlspecialchars($produto['nome'] ?? ''); ?>">
-
-                    <label for="quantidade">Quantidade:</label>
-                    <input type="text" name="quantidade" value="<?php echo htmlspecialchars($produto['quantidade'] ?? ''); ?>">
+                    <input type="text" name="nome" value="<?  ($produto['nome'] ?? ''); ?>">
 
 
                     <label for="valor">Valor:</label>
-                    <input type="text" name="valor" value="<?php echo htmlspecialchars($produto['valor'] ?? ''); ?>">
+                    <input type="text" name="valor" value="<? ($produto['valor'] ?? ''); ?>">
 
                     <button type="submit">Editar</button>
                 </form>

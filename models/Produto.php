@@ -3,7 +3,6 @@ class Produto
 {
     private $id = 0;
     private $nome = "";
-    private $quantidade = 0;
     private $valor = 0;
     
 
@@ -27,20 +26,6 @@ class Produto
     public function setNome($nome)
     {
         $this->nome = $nome;
-
-        return $this;
-    }
-
-    
-    public function getQuantidade()
-    {
-        return $this->quantidade;
-    }
-
-
-    public function setQuantidade($quantidade)
-    {
-        $this->quantidade = $quantidade;
 
         return $this;
     }
