@@ -1,9 +1,9 @@
 <?php
 class Produto 
 {
-    private $id = 0;
-    private $nome = "";
-    private $valor = 0;
+    private $id;
+    private $nome;
+    private $valor;
     
 
     public function getId()

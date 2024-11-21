@@ -32,28 +32,33 @@
                 <div class="container-fluid">
                     <?php
                         $produto = [];
-                        $id = filter_input(INPUT_GET, 'idProduto');
-                        if ($id) 
-                        {
-                            $sql = $pdo->prepare("SELECT * FROM produtos where idProduto = :idProduto");
-                            $sql->bindValue(':produtoId', $produtoId);
+                        $id = filter_input(INPUT_GET, 'produtoId',FILTER_VALIDATE_INT);
+                        if ($id) {
+                            $sql = $pdo->prepare("SELECT * FROM produtos where Idproduto = :produtoId");
+                            $sql->bindValue(':produtoId', $id,PDO::PARAM_INT);
                             $sql->execute();
 
                             if($sql->rowCount() > 0) {
-                                $produto = $sql->fetch(PDO::FETCH_ASSOC);
-                            } else 
-                            {
-                                header("consultaProdutoView.php");
+                               $produto = $sql->fetch(PDO::FETCH_ASSOC);
+
+                            } else {
+                                header("Location: consultaProdutoView.php");
+                                exit;
                             }
                         }
+                     
                     ?>
-                <form action="../controllers/EditarProduto.php" method="POST">
-                    <label for="nome">Nome:</label>
-                    <input type="text" name="nome" value="<?  ($produto['nome'] ?? ''); ?>">
 
+                <form action="../controllers/EditarProduto.php" method="POST">
+
+                    <!-- Campo oculto para enviar o ID do produto -->
+                    <input type="hidden" name="produtoId" value="<?= htmlspecialchars($id) ?>">
+
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome"  name="nome" class="form-control" value="<?= htmlspecialchars($produto['nome'] ?? '') ?>">
 
                     <label for="valor">Valor:</label>
-                    <input type="text" name="valor" value="<? ($produto['valor'] ?? ''); ?>">
+                    <input type="text" id="valor" name="valor" class="form-control" value="<?= htmlspecialchars($produto['valor'] ?? '') ?>">
 
                     <button type="submit">Editar</button>
                 </form>
