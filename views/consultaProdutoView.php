@@ -48,7 +48,6 @@
                         <th>ID</th>
                         <th>Nome</th>
                         <th>Valor</th>
-                        <th>Quantidade</th>
                         <th>Ações</th>
                         <th>Ações</th>
                     </tr>
@@ -57,9 +56,8 @@
                         <td class=><?php echo $produto['idProduto']?></td>
                         <td class=><?php echo $produto['nome']?></td>
                         <td><?php echo $produto['valor']?></td>
-                        <td><?php echo $produto['quantidade']?></td>
-                        <td><button class="btn" type="button btn-dark mx-3" data-bs-theme="dark"><a href="editarProdutoView.php?id<?$produto['idProduto']?>">Editar</a></button></td>
-                        <td><button class="btn" type="button btn-dark mx-3" data-bs-theme="dark"><a href="deletarProduto.php?id<?$produto['idProduto']?>">Excluir</a></button></td>
+                        <td><button class="btn" type="button" class="btn-dark mx-3" data-bs-theme="dark"><a href="editarProdutoView.php?id=<?=$produto['idProduto']?>">Editar</a></button></td>
+                        <td><button class="btn" type="button btn-dark mx-3" data-bs-theme="dark"><a href="deletarProduto.php?id<?=$produto['idProduto']?>">Excluir</a></button></td>
                     </tr>
 
                     <?php endforeach; ?>

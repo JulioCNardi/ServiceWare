@@ -14,4 +14,3 @@ try {
     // Captura e exibe erros de conexão
     die("Erro ao conectar ao banco de dados: " . $e->getMessage());
 }
-?>
