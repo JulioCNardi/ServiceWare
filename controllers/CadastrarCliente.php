@@ -30,5 +30,5 @@ try {
 ?>
 
 <script type="text/javascript">
-    window.location = "../views/cadastroClienteview.php";
+    window.location = "../views/consultarProdutoview.php";
 </script>

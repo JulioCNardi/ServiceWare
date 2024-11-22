@@ -22,7 +22,6 @@ try {
 
     // Executando a consulta
     if ($sql->execute()) {
-        echo "Produto atualizado com sucesso!";
     } else {
         echo "Erro ao atualizar o produto.";
     }
@@ -30,3 +29,9 @@ try {
     // Capturando erros no banco de dados
     echo "Erro de banco de dados: " . $e->getMessage();
 }
+
+?>
+
+<script type="text/javascript">
+    window.location = "../views/consultaProdutoview.php";
+</script>

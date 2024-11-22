@@ -13,6 +13,7 @@
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="../css/estilo.css">
 
+
     <!-- Font Awesome JS -->
     <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
 </head>
@@ -51,13 +52,15 @@
                         <th>Ações</th>
                         <th>Ações</th>
                     </tr>
+
+
                     <?php foreach($listaProdutos as $produto): ?>
                     <tr class="text-center">
                         <td class=><?php echo $produto['idProduto']?></td>
                         <td class=><?php echo $produto['nome']?></td>
                         <td><?php echo $produto['valor']?></td>
-                        <td><button class="btn" type="button" class="btn-dark mx-3" data-bs-theme="dark"><a href="editarProdutoView.php?id=<?=$produto['idProduto']?>">Editar</a></button></td>
-                        <td><button class="btn" type="button btn-dark mx-3" data-bs-theme="dark"><a href="deletarProduto.php?id<?=$produto['idProduto']?>">Excluir</a></button></td>
+                        <td><button class="btn btn-warning mx-3" type="button" data-bs-theme="dark"><a href="editarProdutoView.php?id=<?=$produto['idProduto']?>">Editar</a></button></td>
+                        <td><button class="btn bg-danger mx-3" type="button " data-bs-theme="dark"><a href="../controllers/DeletarProduto.php?id=<?=$produto['idProduto']?>">Excluir</a></button></td>
                     </tr>
 
                     <?php endforeach; ?>
