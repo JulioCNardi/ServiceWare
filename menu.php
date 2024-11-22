@@ -31,7 +31,7 @@
                         </a>
                         <ul id="dashboard" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <li class="sidebar-item">
-                                <a href="views/aberturaOSView.php" class="sidebar-link">Abertura de OS</a>
+                                <a href="views/OsView.php" class="sidebar-link">Abertura de OS</a>
                             </li>
                             <li class="sidebar-item">
                                 <a href="views/consultaOSView.php" class="sidebar-link">Consulta de OS</a>

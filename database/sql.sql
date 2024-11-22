@@ -24,15 +24,13 @@ CREATE TABLE veiculos(
     modelo varchar(255) NOT NULL,
     ano varchar(255) NOT NULL,
     marca varchar(255) NOT NULL,
-    idCliente int NOT NULL,
-    FOREIGN KEY (idCliente) REFERENCES clientes(idCliente) ON DELETE CASCADE
 );
 
 CREATE TABLE ordem(
    idOrdem int AUTO_INCREMENT PRIMARY KEY,
    idCliente INT NOT NULL,
+   idProduto int NOT NULL,
    dataAbertura DATETIME,
-   dataFechamento DATETIME,
    idVeiculo int not null,
    valorVenda FLOAT NULL,
    observacao varchar(500) NULL,
