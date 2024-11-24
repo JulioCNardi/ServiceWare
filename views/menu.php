@@ -27,19 +27,19 @@
             </li>
             <hr class="divider">
             <li class="nav-item">
-                <a href="Index.php" class="ms-3">
-                    <i class="fs-5 bi-person-fill"></i><span class="ms-1 d-none d-sm-inline">Gerar Relatório de OS</span>
+                <a href="relatorioOS.php" class="ms-3">
+                    <i class="fs-5 bi-file-earmark-binary-fill"></i><span class="ms-1 d-none d-sm-inline">Gerar Relatório de OS</span>
                 </a>
             </li>
             <hr class="divider">
             <li class="nav-item">
                 <a href="../login.php" class="ms-3">
-                    <i class="fs-5 bi-person-fill"></i><span class="ms-1 d-none d-sm-inline">Deslogar</span>
+                    <i class="fs-5 bi-arrow-left-circle-fill"></i><span class="ms-1 d-none d-sm-inline">Deslogar</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="Index.php" class="ms-3">
-                    <i class="fs-5 bi-lightbulb-fill"></i><span class="ms-1 d-none d-sm-inline">Ajuda</span>
+                    <i class="fs-5 bi-info-square-fill"></i><span class="ms-1 d-none d-sm-inline">Ajuda</span>
                 </a>
             </li>
         </ul>
