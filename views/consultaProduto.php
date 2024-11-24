@@ -33,43 +33,23 @@
             </button>
         </div>
         <div class="conteudo col-10 row">
-
-        <?php
-            $produto = [];
-            $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-            if ($id) 
-            {
-                $sql = $pdo->prepare("SELECT * FROM produtos where Idproduto = :produtoId");
-                $sql->bindValue(':produtoId', $id,PDO::PARAM_INT);
-                $sql->execute();
-
-                if($sql->rowCount() > 0) {
-                    $produto = $sql->fetch(PDO::FETCH_ASSOC);
-                } else {
-                        header("Location: consultaProduto.php");
-                        exit;
-                }
-            }
-        ?>
-        
-
-            <div class="col-4 text-center bg-light rounded">
-                <h2 class="h3">Edição de Produtos:</h2>
-                <form class="text-center" action="../controllers/EditarProduto.php" method="POST">
-                    <input type="hidden" name="produtoId" value="<?=$produto['idProduto']?>" />
+                <h2 class="h1 text-center">Produtos</h2>
+            <div class="col-4 text-center bg-light rounded" style="margin-top: 2rem;">
+                <h2 class="h3">Cadastro de Produtos:</h2>
+                <form class="text-center" action="../controllers/CadastrarProduto.php" method="POST">
                     <div class="mb-3">
                         <label for="nome" class="form-label">Nome do produto</label>
-                        <input type="text" class="form-control" id="nome" name="nome" value="<?=$produto['nome']?>" required>
+                        <input type="text" class="form-control" id="nome" name="nome" required>
                     </div>
                     <div class="mb-3">
                         <label for="valor" class="form-label">Valor de Venda do Produto</label>
-                        <input type="text" class="form-control" id="valor" name="valor" value="<?=$produto['valor']?>">
+                        <input ttype="text" class="form-control" id="valor" name="valor">
                         <br>
-                        <button type="submit" class="btn btn-primary">Atualizar</button>
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
                     </div>
                     </form>
             </div>
-            <div class="col-8 text-center">
+            <div class="col-8 text-center" style="margin-top: 2rem;">
                 <?php
                     $listaProdutos = [];
                     $sql = $pdo->query("SELECT * FROM produtos");
@@ -84,8 +64,8 @@
                             <th>ID</th>
                             <th>Nome</th>
                             <th>Valor</th>
-                            <th>Ações</th>
-                            <th>Ações</th>
+                            <th></th>
+                            <th></th>
                         </tr>
 
 
@@ -94,8 +74,8 @@
                             <td class=><?php echo $produto['idProduto']?></td>
                             <td class=><?php echo $produto['nome']?></td>
                             <td><?php echo $produto['valor']?></td>
-                            <td><button class="btn btn-warning mx-3" type="button" data-bs-theme="dark"><a href="editarProdutoView.php?id=<?=$produto['idProduto']?>">Editar</a></button></td>
-                            <td><button class="btn bg-danger mx-3" type="button " data-bs-theme="dark"><a href="../controllers/DeletarProduto.php?id=<?=$produto['idProduto']?>">Excluir</a></button></td>
+                            <td><button class="btn btn-warning mx-3 text-white" type="button" data-bs-theme="dark"><a href="editarProdutoView.php?id=<?=$produto['idProduto']?>"><i class="bi bi-pencil-fill"></i></a></button></td>
+                            <td><button class="btn bg-danger mx-3" type="button " data-bs-theme="dark"><a href="../controllers/DeletarProduto.php?id=<?=$produto['idProduto']?>"><i class="bi bi-trash-fill"></i></a></button></td>
                         </tr>
 
                         <?php endforeach; ?>

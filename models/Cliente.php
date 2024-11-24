@@ -7,7 +7,6 @@ class Cliente
     private $cpf = "";
     private $email = "";
     private $cidade = "";
-    private $rua  = "";
     private $numero = "";
     private $telefone="";
     private $endereco="";
@@ -71,19 +70,6 @@ class Cliente
     public function setCpf($cpf)
     {
         $this->cpf = $cpf;
-
-        return $this;
-    }
-
-    
-    // Rua
-    public function getRua()
-    {
-        return $this->rua;
-    }
-    public function setRua($rua)
-    {
-        $this->rua = $rua;
 
         return $this;
     }

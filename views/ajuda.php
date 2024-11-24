@@ -8,8 +8,9 @@
 
     <title>ServiceWare</title>
 
-    <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABG1Yw3pP9tLUMt8Lx4Z6E8t4l+zHlqZb6v4xXcwp0U1FzFqBpnB74P" crossorigin="anonymous">
+
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="css/estilo.css">
     <link rel="stylesheet" href="css/estilo_menu.css">
@@ -34,7 +35,7 @@
             </nav>
             <main class="content px-3 ">
                 <div class="container-fluid">
-                    <div class="mb-3 text-center">
+                    <div class="ms-3 text-center">
                         <h2>Bem vindo ao sistema ServiceWare!</h2>
                         <img src="img/logo.png">
                         <p>
@@ -46,8 +47,9 @@
             </main>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>
-    </header>
     
+    
+    </header>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0W1B06sFohDqZgA9z6j6JYd2DkMZ7K2PqdX7uOhdL7a5llZJ" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
 </body>

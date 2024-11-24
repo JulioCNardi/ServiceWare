@@ -18,5 +18,5 @@ try {
 ?>
 
 <script type="text/javascript">
-    window.location = "../views/consultaProdutoview.php";
+    window.location = "../views/consultaProduto.php";
 </script>
