@@ -22,7 +22,7 @@
                     <li><a class="dropdown-item" href="consultaProduto.php">Produtos</a></li>
                     <li><a class="dropdown-item" href="consultaCliente.php">Clientes</a></li>
                     <li><a class="dropdown-item" href="consultaVeiculo.php">Veiculos</a></li>
-                    <li><a class="dropdown-item" href="#">Ordem de Serviço</a></li>
+                    <li><a class="dropdown-item" href="consultaOS.php">Ordem de Serviço</a></li>
                 </ul>
             </li>
             <hr class="divider">

@@ -19,10 +19,10 @@ INSERT INTO veiculos (placa, modelo, ano, marca) VALUES
 ('OPQ-6789', 'Fiesta', '2018', 'Ford'),
 ('RST-3456', 'Corolla', '2022', 'Toyota');
 
-INSERT INTO ordem (idCliente, dataAbertura, dataFechamento, idVeiculo, valorVenda, observacao) VALUES
-(1, '2024-11-01', '2024-11-02', 1, 1200.00, 'Troca de peças no motor'),
-(2, '2024-11-03', '2024-11-04', 2, 1500.00, 'Troca de pneus e revisão geral'),
-(3, '2024-11-05', '2024-11-06', 3, 800.00, 'Reparo no sistema de ar condicionado'),
-(4, '2024-11-07', '2024-11-08', 4, 1100.00, 'Revisão de suspensão e alinhamento'),
-(5, '2024-11-09', '2024-11-10', 5, 2000.00, 'Troca de óleo e filtro');
+INSERT INTO ordem (dataAbertura, dataFechamento, valorVenda, observacao) VALUES
+('2024-11-01', '2024-11-02', 1200.00, 'Troca de peças no motor'),
+('2024-11-03', '2024-11-04', 1500.00, 'Troca de pneus e revisão geral'),
+('2024-11-05', '2024-11-06', 800.00, 'Reparo no sistema de ar condicionado'),
+('2024-11-07', '2024-11-08', 1100.00, 'Revisão de suspensão e alinhamento'),
+('2024-11-09', '2024-11-10', 2000.00, 'Troca de óleo e filtro');
 

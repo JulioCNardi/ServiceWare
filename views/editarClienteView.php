@@ -55,7 +55,6 @@
         <div class="conteudo col-10 row">
             <h2 class="h1 text-center">Clientes</h2>
             <div class="col-12">
-                <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Cadastrar Clientes</a>
                     <div class="col-12 text-center bg-light rounded" style="margin-top: 2rem; padding-left: 15rem; padding-right: 15rem;">
                         <h2 class="h3">Edição de Clientes:</h2>
                         <br>

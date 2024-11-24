@@ -28,12 +28,8 @@ CREATE TABLE veiculos(
 
 CREATE TABLE ordem(
    idOrdem int AUTO_INCREMENT PRIMARY KEY,
-   idCliente INT NOT NULL,
    dataAbertura DATE,
    dataFechamento DATE,
-   idVeiculo int not null,
    valorVenda FLOAT NULL,
    observacao varchar(500) NULL,
-   FOREIGN KEY (idCliente) REFERENCES clientes(idCliente) ON DELETE CASCADE,
-   FOREIGN KEY (idVeiculo) REFERENCES veiculos(idVeiculo) ON DELETE CASCADE
 );
