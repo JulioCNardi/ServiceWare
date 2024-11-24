@@ -84,8 +84,8 @@
                             <th>ID</th>
                             <th>Nome</th>
                             <th>Valor</th>
-                            <th>Ações</th>
-                            <th>Ações</th>
+                            <th>Editar</th>
+                            <th>Deletar</th>
                         </tr>
 
 

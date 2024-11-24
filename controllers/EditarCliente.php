@@ -1,6 +1,6 @@
 <?php
 include("../helpers/banco.php");
-include("../models/Produto.php");
+include("../models/Cliente.php");
 
 // Capturando os dados do POST
 $clienteid = filter_input(INPUT_POST, 'produtoId', FILTER_VALIDATE_INT);  // Mudar para 'clienteId' se for cliente.
