@@ -39,7 +39,7 @@
                 <div class="collapse" id="collapseExample">
                 <div class="card card-body">
                     <div class="col-12 text-center bg-light rounded" style="margin-top: 2rem; padding-left: 15rem; padding-right: 15rem;">
-                        <h2 class="h3">Cadastro de Veiculos:</h2>
+                        <h2 class="h3">Cadastro de Ordem:</h2>
                         <br>
                         <form class="text-center" action="../controllers/CadastrarOS.php" method="POST">
                             <label for="nome" class="form-label">Data de abertura e fechamento da Ordem</label>
@@ -87,7 +87,7 @@
                             <td><?php echo $ordem['dataFechamento']?></td>
                             <td><?php echo $ordem['valorVenda']?></td>
                             <td><?php echo $ordem['observacao']?></td>
-                            <td><button class="btn btn-warning mx-3 text-white" type="button" data-bs-theme="dark"><a href="editarVeiculoView.php?id=<?=$ordem['idOrdem']?>"><i class="bi bi-pencil-fill"></i></a></button></td>
+                            <td><button class="btn btn-warning mx-3 text-white" type="button" data-bs-theme="dark"><a href="editarOSView.php?id=<?=$ordem['idOrdem']?>"><i class="bi bi-pencil-fill"></i></a></button></td>
                             <td><button class="btn bg-danger mx-3" type="button " data-bs-theme="dark"><a href="../controllers/DeletarOrdem.php?id=<?=$ordem['idOrdem']?>"><i class="bi bi-trash-fill"></i></a></button></td>
                         </tr>
 

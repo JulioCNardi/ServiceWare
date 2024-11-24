@@ -1,5 +1,6 @@
 <?php
 include("../helpers/banco.php");
+include("../models/Veiculo.php");
 
 // Capturando os dados do POST
 $veiculoId = filter_input(INPUT_POST, 'veiculoId', FILTER_VALIDATE_INT);

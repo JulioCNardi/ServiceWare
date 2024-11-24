@@ -33,7 +33,7 @@
             </li>
             <hr class="divider">
             <li class="nav-item">
-                <a href="Index.php" class="ms-3">
+                <a href="../login.php" class="ms-3">
                     <i class="fs-5 bi-person-fill"></i><span class="ms-1 d-none d-sm-inline">Deslogar</span>
                 </a>
             </li>
