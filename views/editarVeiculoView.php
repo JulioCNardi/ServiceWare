@@ -5,16 +5,15 @@ $veiculo = [];
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
 if ($id) {
-    // Corrigindo a consulta para buscar um veículo pelo idVeiculo
+    //  buscar um veículo pelo id
     $sql = $pdo->prepare("SELECT * FROM veiculos WHERE idVeiculo = :veiculoId");
-    $sql->bindValue(':veiculoId', $id, PDO::PARAM_INT); // Bind correto do parâmetro
+    $sql->bindValue(':veiculoId', $id, PDO::PARAM_INT); 
     $sql->execute();
 
     if ($sql->rowCount() > 0) {
-        // Corrigindo a variável para armazenar os dados do veículo
+
         $veiculo = $sql->fetch(PDO::FETCH_ASSOC); 
     } else {
-        // Caso não encontre o veículo, redireciona para a página de consulta
         header("Location: consultaVeiculo.php");
         exit;
     }
@@ -30,15 +29,11 @@ if ($id) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>ServiceWare</title>
 
-    <!-- Bootstrap 5 CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     
-    <!-- Our Custom CSS -->
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/estilo.css">
-    
 
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
@@ -48,7 +43,7 @@ if ($id) {
 <main class="container-fluid">
     <div class="row">
         <div class="col-1">
-            <!-- toggler -->
+
             <button class="btn float-start" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" role="button">
                 <i class="bi bi-arrow-right-square-fill fs-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"></i>
             </button>

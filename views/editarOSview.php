@@ -2,12 +2,13 @@
 require_once("../helpers/banco.php");
 
 $ordem = [];
+$produtosOrdem = [];
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
 if ($id) {
-    // Corrigindo a consulta para buscar um veículo pelo idVeiculo
-    $sql = $pdo->prepare("SELECT * FROM Ordem WHERE idOrdem = :ordemId");
-    $sql->bindValue(':ordemId', $id, PDO::PARAM_INT); // Bind correto do parâmetro
+    // Recuperar dados da ordem
+    $sql = $pdo->prepare("SELECT * FROM ordem WHERE idOrdem = :ordemId");
+    $sql->bindValue(':ordemId', $id, PDO::PARAM_INT);
     $sql->execute();
 
     if ($sql->rowCount() > 0) {
@@ -16,67 +17,150 @@ if ($id) {
         header("Location: consultaOrdem.php");
         exit;
     }
+
+    // select produtos  ordem
+    $sqlProdutos = $pdo->prepare("
+        SELECT op.idProduto, p.nome, op.quantidade 
+        FROM ordem_produtos op
+        JOIN produtos p ON op.idProduto = p.idProduto
+        WHERE op.idOrdem = :ordemId
+    ");
+    $sqlProdutos->bindValue(':ordemId', $id, PDO::PARAM_INT);
+    $sqlProdutos->execute();
+    $produtosOrdem = $sqlProdutos->fetchAll(PDO::FETCH_ASSOC);
+    
+    // SELECT dos produtos cadastrados
+    $sqlTodosProdutos = $pdo->prepare("SELECT * FROM produtos");
+    $sqlTodosProdutos->execute();
+    $produtosCadastrados = $sqlTodosProdutos->fetchAll(PDO::FETCH_ASSOC);
 }
 ?>
 
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>ServiceWare</title>
 
-    <!-- Bootstrap 5 CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    
-    <!-- Our Custom CSS -->
+
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/estilo.css">
-    
 
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        .form-container {
+            margin-top: 2rem;
+            padding: 2rem;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        .input-group-text {
+            min-width: 150px;
+        }
+
+        .input-group .form-control {
+            flex: 1;
+        }
+
+        .product-row {
+            margin-bottom: 1rem;
+        }
+
+        .btn-primary {
+            margin-top: 1rem;
+            width: 100%;
+        }
+    </style>
 </head>
+
 <body>
 
 <?php include("menu.php") ?>
 
-<main class="container-fluid">
-    <div class="row">
-        <div class="col-1">
-            <!-- toggler -->
-            <button class="btn float-start" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" role="button">
-                <i class="bi bi-arrow-right-square-fill fs-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"></i>
-            </button>
-        </div>
-        <div class="conteudo col-10 row">
-            <h2 class="h1 text-center">Veiculos</h2>
-            <div class="col-12">
-                    <div class="col-12 text-center bg-light rounded" style="margin-top: 2rem; padding-left: 15rem; padding-right: 15rem;">
-                        <h2 class="h3">Edição de Veículo:</h2>
-                        <br>
-                        <form class="text-center" action="../controllers/EditarOS.php" method="POST">
-                            <input type="hidden" name="produtoId" value="<?=$ordem['idOrdem']?>">
-                            <label for="nome" class="form-label">Data de abertura e fechamento da Ordem</label>
-                            <div class="input-group mb-3">
-                                <input type="date" class="form-control" placeholder="dataAbertura" aria-label="dataAbertura" name="dataAbertura" required value="<?=$ordem['dataAbertura']?>">
-                                <input type="date" class="form-control" placeholder="dataFechamento" aria-label="dataFechamento" name="dataFechamento" required value="<?=$ordem['dataFechamento']?>">
-                            </div>
-                            <label for="nome" class="form-label">Valor de Venda e descrição do serviço</label>
-                            <div class="input-group mb-3">
-                                <input type="number" class="form-control" placeholder="valor de venda" aria-label="valorVenda" name="valorVenda" required value="<?=$ordem['valorVenda']?>">
-                                <input type="textarea" class="form-control" placeholder="Descrição" aria-label="observacao" name="observacao" required value="<?=$ordem['observacao']?>">
-                            </div>
-                            <button type="submit" class="btn btn-primary">Editar</button>
-                        </form>
+<main class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10 col-sm-12">
+            <div class="form-container">
+                <h2 class="text-center">Editar Ordem</h2>
+                <form action="../controllers/EditarOS.php" method="POST">
+                    <input type="hidden" name="idOrdem" value="<?= $id ?>">
+
+                    <div class="mb-3">
+                        <label for="dataAbertura" class="form-label">Data de Abertura</label>
+                        <input type="date" class="form-control" name="dataAbertura" required value="<?= $ordem['dataAbertura'] ?>">
                     </div>
-                </div>
+
+                    <div class="mb-3">
+                        <label for="dataFechamento" class="form-label">Data de Fechamento</label>
+                        <input type="date" class="form-control" name="dataFechamento" required value="<?= $ordem['dataFechamento'] ?>">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="observacao" class="form-label">Observação</label>
+                        <textarea class="form-control" name="observacao" rows="3"><?= $ordem['observacao'] ?></textarea>
+                    </div>
+
+                    <!-- Produtos -->
+                    <div id="produtosContainer">
+                        <?php foreach ($produtosOrdem as $produto): ?>
+                            <div class="product-row mb-3">
+                                <div class="input-group">
+                                    <select name="produtos[]" class="form-select" required>
+                                        <option value="">Selecione um produto</option>
+                                        <?php foreach ($produtosCadastrados as $prod): ?>
+                                            <option value="<?= $prod['idProduto'] ?>" <?= $prod['idProduto'] == $produto['idProduto'] ? 'selected' : '' ?>><?= $prod['nome'] ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <input type="number" name="quantidade[]" class="form-control" placeholder="Quantidade" required value="<?= $produto['quantidade'] ?>" min="1">
+                                    <button type="button" class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+
+                    <!-- Botão para adicionar novos produtos -->
+                    <button type="button" class="btn btn-secondary" onclick="adicionarProduto()">Adicionar Produto</button>
+
+                    <button type="submit" class="btn btn-primary mt-3">Salvar Alterações</button>
+                </form>
             </div>
         </div>
+    </div>
 </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
 
+<script>
+    function adicionarProduto() {
+    const container = document.getElementById('produtosContainer');
+    const newRow = document.createElement('div');
+    newRow.className = 'product-row mb-3';
+    newRow.innerHTML = `
+        <div class="input-group">
+            <select name="produtos[]" class="form-select" required>
+                <option value="">Selecione um produto</option>
+                <?php foreach ($produtosCadastrados as $prod): ?>
+                    <option value="<?= $prod['idProduto'] ?>"><?= $prod['nome'] ?></option>
+                <?php endforeach; ?>
+            </select>
+            <input type="number" name="quantidade[]" class="form-control" placeholder="Quantidade" required min="1">
+            <button type="button" class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+    `;
+    container.appendChild(newRow);
+    }
+
+    function removerProduto(button) {
+        button.parentElement.parentElement.remove();
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
 </html>
