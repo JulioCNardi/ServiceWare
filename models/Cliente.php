@@ -11,9 +11,6 @@ class Cliente
     private $telefone="";
     private $endereco="";
 
-    // Getters e setters
-
-    // ID
     public function getId()
     {
         return $this->id;
@@ -25,8 +22,6 @@ class Cliente
         return $this;
     }
 
-
-    // Nome
     public function getNome()
     {
         return $this->nome;
@@ -38,7 +33,6 @@ class Cliente
         return $this;
     }
 
-    // Email
     public function getEmail()
     {
         return $this->email;
@@ -50,7 +44,6 @@ class Cliente
         return $this;
     }
 
-    // Cidade
     public function getCidade()
     {
         return $this->cidade;
@@ -62,7 +55,7 @@ class Cliente
         return $this;
     }
 
-    // Cpf
+
     public function getCpf()
     {
         return $this->cpf;
@@ -74,7 +67,6 @@ class Cliente
         return $this;
     }
     
-    // Numero
     public function getNumero()
     {
         return $this->numero;
@@ -87,19 +79,12 @@ class Cliente
     }
 
 
-    /**
-     * Get the value of telefone
-     */ 
     public function getTelefone()
     {
         return $this->telefone;
     }
 
-    /**
-     * Set the value of telefone
-     *
-     * @return  self
-     */ 
+
     public function setTelefone($telefone)
     {
         $this->telefone = $telefone;
@@ -107,19 +92,11 @@ class Cliente
         return $this;
     }
 
-    /**
-     * Get the value of endereco
-     */ 
     public function getEndereco()
     {
         return $this->endereco;
     }
 
-    /**
-     * Set the value of endereco
-     *
-     * @return  self
-     */ 
     public function setEndereco($endereco)
     {
         $this->endereco = $endereco;

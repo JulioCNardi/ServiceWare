@@ -24,11 +24,6 @@
                     <li><a class="dropdown-item" href="consultaVeiculo.php">Veiculos</a></li>
                     <li><a class="dropdown-item" href="consultaOS.php">Ordem de Serviço</a></li>
                 </ul>
-            </li>
-            <hr class="divider">
-            <li class="nav-item">
-                <a href="relatorioOS.php" class="ms-3">
-                    <i class="fs-5 bi-file-earmark-binary-fill"></i><span class="ms-1 d-none d-sm-inline">Gerar Relatório de OS</span>
                 </a>
             </li>
             <hr class="divider">

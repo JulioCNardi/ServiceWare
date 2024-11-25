@@ -8,14 +8,13 @@ $ano = filter_input(INPUT_POST, 'ano');
 $marca = filter_input(INPUT_POST, 'marca');    
 
 try {
-    // Preparando a consulta para inserir os dados no banco
+    //  inserir  dados 
     $sql = $pdo->prepare("INSERT INTO veiculos (modelo, placa, ano, marca) VALUES (:modelo, :placa, :ano, :marca)");
     $sql->bindValue(':modelo', $modelo, PDO::PARAM_STR);
     $sql->bindValue(':placa', $placa, PDO::PARAM_STR);
     $sql->bindValue(':ano', $ano, PDO::PARAM_STR);
     $sql->bindValue(':marca', $marca, PDO::PARAM_STR);
     
-    // Executando a inserção
     if ($sql->execute()) {
         echo "Veículo cadastrado com sucesso!";
     } else {
@@ -28,6 +27,5 @@ try {
 ?>
 
 <script type="text/javascript">
-    // Redireciona para a página de consulta de veículos
     window.location = "../views/consultaVeiculo.php";
 </script>

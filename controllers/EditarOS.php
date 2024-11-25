@@ -2,32 +2,55 @@
 include("../helpers/banco.php");
 include("../models/Ordem.php");
 
-// Capturando os dados do POST
-$ordemId = filter_input(INPUT_POST, 'produtoId', FILTER_VALIDATE_INT);
-$dataAbetura = filter_input(INPUT_POST, 'dataAbertura'); 
-$dataFechamento = filter_input(INPUT_POST, 'dataFechamento');    
-$valorVenda = filter_input(INPUT_POST, 'valorVenda', FILTER_VALIDATE_FLOAT);  
-$observacao = filter_input(INPUT_POST, 'observacao');    
+$ordemId = filter_input(INPUT_POST, 'idOrdem', FILTER_VALIDATE_INT);
+$dataAbertura = filter_input(INPUT_POST, 'dataAbertura');
+$dataFechamento = filter_input(INPUT_POST, 'dataFechamento');      
+$observacao = filter_input(INPUT_POST, 'observacao');
 
-if ($ordemId && $dataAbetura && $dataFechamento && $valorVenda && $observacao) {
-    // Preparando a consulta SQL
-    $sql = $pdo->prepare("UPDATE ordem SET dataAbertura = :dataAbertura, dataFechamento = :dataFechamento, valorVenda = :valorVenda, observacao = :observacao WHERE idOrdem = :ordemId");
-    $sql->bindValue(':dataAbertura', $dataAbetura);
-    $sql->bindValue(':dataFechamento', $dataFechamento);  
-    $sql->bindValue(':valorVenda', $valorVenda);
+
+$produtos = $_POST['produtos'] ?? [];
+$quantidades = $_POST['quantidade'] ?? [];
+
+try {
+
+    $pdo->beginTransaction();
+
+    $sql = $pdo->prepare("
+        UPDATE ordem 
+        SET dataAbertura = :dataAbertura, 
+            dataFechamento = :dataFechamento,  
+            observacao = :observacao 
+        WHERE idOrdem = :ordemId
+    ");
+    $sql->bindValue(':dataAbertura', $dataAbertura);
+    $sql->bindValue(':dataFechamento', $dataFechamento);
     $sql->bindValue(':observacao', $observacao, PDO::PARAM_STR);
     $sql->bindValue(':ordemId', $ordemId, PDO::PARAM_INT);
 
-    // Executando a consulta
-    if ($sql->execute()) {
-        // Redireciona após a atualização bem-sucedida
-        header("Location: ../views/consultaOS.php");
-        exit;
-    } else {
-        // Mensagem de erro se a atualização falhar
-        echo "Erro ao atualizar a ordem.";
+    if (!$sql->execute()) {
+        throw new Exception("Erro ao atualizar a ordem.");
     }
-} else {
-    echo "Todos os campos são obrigatórios.";
+
+    $deleteProdutos = $pdo->prepare("DELETE FROM ordem_produtos WHERE idOrdem = :ordemId");
+    $deleteProdutos->bindValue(':ordemId', $ordemId, PDO::PARAM_INT);
+    $deleteProdutos->execute();
+
+    if (!empty($produtos)) {
+        $insertProduto = $pdo->prepare("INSERT INTO ordem_produtos (idOrdem, idProduto, quantidade) VALUES (:ordemId, :idProduto, :quantidade)");
+        foreach ($produtos as $key => $idProduto) {
+            $quantidade = $quantidades[$key] ?? 1; 
+            $insertProduto->bindValue(':ordemId', $ordemId, PDO::PARAM_INT);
+            $insertProduto->bindValue(':idProduto', $idProduto, PDO::PARAM_INT);
+            $insertProduto->bindValue(':quantidade', $quantidade, PDO::PARAM_INT);
+            $insertProduto->execute();
+        }
+    }
+    $pdo->commit();
+
+    header("Location: ../views/consultaOS.php");
+    exit;
+} catch (Exception $e) {
+    $pdo->rollBack();
+    die("Erro ao atualizar a ordem: " . $e->getMessage());
 }
 ?>
